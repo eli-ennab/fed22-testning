@@ -1,6 +1,6 @@
 # FED22 Testning, 15 yhp
 
-All källkod för kursen Testning för klassen FED22 i Malmö.
+All kod under kursen Testning för klassen FED22 i Malmö.
 
 ### Terminal
 
