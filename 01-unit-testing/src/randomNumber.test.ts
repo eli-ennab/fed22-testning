@@ -16,7 +16,7 @@ test('generates a number between 1-50', () => {
 	expect(randomNumber).toBeLessThanOrEqual( max )
 })
 
-test.todo('generates ten random numbers between 1-10', () => {
+test('generates ten random numbers between 1-10', () => {
 	for (let i = 0; i < 10; i++) {
 		const randomNumber = getRandomNumber()
 
