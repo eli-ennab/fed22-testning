@@ -31,13 +31,11 @@ describe('save todos', () => {
 		expect(result.success).toBe(true)
 	})
 
-	// it('can save a todo and then get it', () => {
-	// 	const result = saveTodos([TODO])
+	it('can save a todo and then get it', () => {
+		const result = saveTodos([TODO])
+		expect(result.success).toBe(true)
 
-	// 	expect(result.success).toBe(true)
-
-	// 	const todos = getTodos()
-
-	// 	expect(todos.length).toBe(1)
-	// })
+		const todos = getTodos()
+		expect(todos).toContainEqual(TODO)
+	})
 })
