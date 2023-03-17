@@ -15,6 +15,11 @@ const todos: Todo[] = [
 		id: 3,
 		title: 'My third todo',
 		completed: false
+	},
+	{
+		id: 4,
+		title: 'My fourth todo',
+		completed: true
 	}
 ]
 
