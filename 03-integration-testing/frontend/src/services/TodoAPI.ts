@@ -7,7 +7,7 @@ const BASE_URL = import.meta.env.VITE_API_BASE_URL
  * Generic get request
  */
 export const get = async <T>(endpoint: string) => {
-	const res = await axios.get<T>(BASE_URL + endpoint)
+	const res = await axios.get<T>(BASE_URL + endpoint)		// http://localhost:3001 + /todos
 	return res.data
 }
 
@@ -41,6 +41,11 @@ export const del = async (endpoint: string) => {
  */
 export const getTodos = async () => {
 	return get<Todo[]>(`/todos`)
+
+	/*
+	const res = await axios.get<Todo[]>(`${BASE_URL}/todos`)
+	return res.data
+	*/
 }
 
 /**
@@ -49,6 +54,11 @@ export const getTodos = async () => {
 
 export const getTodo = (id: number) => {
 	return get<Todo>(`/todos/${id}`)
+
+	/*
+	const res = await axios.get<Todo>(`${BASE_URL}/todos/${id}`)
+	return res.data
+	*/
 }
 
 /**
