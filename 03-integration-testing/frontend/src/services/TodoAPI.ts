@@ -39,7 +39,7 @@ export const del = async (endpoint: string) => {
 /**
  * Get all todos
  */
-export const getTodos = async () => {
+export const getTodos = () => {
 	return get<Todo[]>(`/todos`)
 
 	/*
@@ -62,7 +62,7 @@ export const getTodo = (id: number) => {
 }
 
 /**
- * Create a new todo
+ * Create a todo
  */
 export const createTodo = (todo: CreateTodoData) => {
 	return post<Todo>(`/todos`, todo)
