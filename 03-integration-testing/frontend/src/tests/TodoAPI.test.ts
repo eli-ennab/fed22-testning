@@ -30,10 +30,10 @@ describe('TodoAPI', () => {
 		const createdTodo = await TodoAPI.createTodo(newTodo)
 
 		// try to get the todo
-		const todo = await TodoAPI.getTodo(createdTodo.id)
+		const getTodoResponse = await TodoAPI.getTodo(createdTodo.id)
 
 		// expect both todos to have the same key/values
-		expect(todo).toStrictEqual(createdTodo)
+		expect(getTodoResponse.data).toStrictEqual(createdTodo)
 	})
 
 	it('should create and then find the todo among all todos', async () => {
