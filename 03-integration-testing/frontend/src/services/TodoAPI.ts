@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { Todo, CreateTodoData, UpdateTodoData, TodoListResponse, TodoResponse } from '../types/Todo'
+import { Todo, CreateTodoData, UpdateTodoData, JSend, TodoList } from '../types/Todo'
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL
 
@@ -40,7 +40,7 @@ export const del = async (endpoint: string) => {
  * Get all todos
  */
 export const getTodos = () => {
-	return get<TodoListResponse>(`/todos`)
+	return get<JSend<TodoList>>(`/todos`)
 	// return get<Todo[]>(`/todos`)
 
 	/*
@@ -54,7 +54,7 @@ export const getTodos = () => {
  */
 
 export const getTodo = (id: number) => {
-	return get<TodoResponse>(`/todos/${id}`)
+	return get<JSend<Todo>>(`/todos/${id}`)
 
 	/*
 	const res = await axios.get<Todo>(`${BASE_URL}/todos/${id}`)

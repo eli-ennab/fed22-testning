@@ -4,18 +4,11 @@ export type Todo = {
 	completed: boolean,
 }
 
-export type TodoResponse = {
-	status: "success" | "fail" | "error",
-	data: Todo,
-	message?: string,
-}
-
 export type TodoList = Todo[]
 
-export type TodoListResponse = {
+export type JSend<T> = {
 	status: "success" | "fail" | "error",
-	data: TodoList,
-	message?: string,
+	data: T,
 }
 
 export type CreateTodoData = {
