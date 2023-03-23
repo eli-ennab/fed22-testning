@@ -72,6 +72,36 @@ export const handlers = [
 	}),
 
 	// Mock update todo, PATCH http://localhost:3001/todos/:todoId
+	rest.patch(BASE_URL + '/todos/:todoId', async (req, res, ctx) => {
+		const todoId = Number(req.params.todoId)
+		const payload = await req.json<Partial<TodoData>>()
 
-	// Mock delete todo, DELETE http://localhost:3001/todos/:todoId
+		// find the todo among the todos
+		const todo = dummyTodos.find(todo => todo.id === todoId)
+
+		// if todo did not exist, respond with 404
+		if (!todo) {
+			return res(
+				ctx.status(404),
+				ctx.json({})
+			)
+		}
+
+		// update todo with payload
+		todo.title = payload.title ?? todo.title
+		todo.completed = payload.completed ?? todo.completed
+
+		return res(
+			ctx.status(200),
+			ctx.json(todo)
+		)
+	}),
+
+	// // Mock delete todo, DELETE http://localhost:3001/todos/:todoId
+	// rest.delete(BASE_URL + '/todos/:todoId', (req, res, ctx) => {
+	// 	const todoId = Number(req.params.todoId)
+
+	// 	// find the todo among the todos
+	// 	const todo = dummyTodos.find(todo => todo.id === todoId)
+	// }),
 ]
