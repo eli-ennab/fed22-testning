@@ -1,22 +1,8 @@
-export type Todo = {
+export type TodoData = {
+	title: string,
+	completed: boolean,
+}
+
+export type Todo = TodoData & {
 	id: number,
-	title: string,
-	completed: boolean,
-}
-
-export type TodoList = Todo[]
-
-export type JSend<T> = {
-	status: "success" | "fail" | "error",
-	data: T,
-}
-
-export type CreateTodoData = {
-	title: string,
-	completed: boolean,
-}
-
-export type UpdateTodoData = {
-	title?: string,
-	completed?: boolean,
 }

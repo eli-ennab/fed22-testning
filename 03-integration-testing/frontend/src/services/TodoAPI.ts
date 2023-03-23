@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { Todo, CreateTodoData, UpdateTodoData, JSend, TodoList } from '../types/Todo'
+import { Todo, TodoData } from '../types/Todo'
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL
 
@@ -7,7 +7,7 @@ const BASE_URL = import.meta.env.VITE_API_BASE_URL
  * Generic get request
  */
 export const get = async <T>(endpoint: string) => {
-	const res = await axios.get<T>(BASE_URL + endpoint)		// http://localhost:3001 + /todos
+	const res = await axios.get<T>(BASE_URL + endpoint)
 	return res.data
 }
 
@@ -35,13 +35,11 @@ export const del = async (endpoint: string) => {
 	return res.data
 }
 
-
 /**
  * Get all todos
  */
 export const getTodos = () => {
-	return get<JSend<TodoList>>(`/todos`)
-	// return get<Todo[]>(`/todos`)
+	return get<Todo[]>('/todos')
 
 	/*
 	const res = await axios.get<Todo[]>(`${BASE_URL}/todos`)
@@ -52,27 +50,21 @@ export const getTodos = () => {
 /**
  * Get a single todo
  */
-
 export const getTodo = (id: number) => {
-	return get<JSend<Todo>>(`/todos/${id}`)
-
-	/*
-	const res = await axios.get<Todo>(`${BASE_URL}/todos/${id}`)
-	return res.data
-	*/
+	return get<Todo>(`/todos/${id}`)
 }
 
 /**
- * Create a todo
+ * Create a new todo
  */
-export const createTodo = (todo: CreateTodoData) => {
+export const createTodo = (todo: TodoData) => {
 	return post<Todo>(`/todos`, todo)
 }
 
 /**
  * Update a todo
  */
-export const updateTodo = (id: number, todo: UpdateTodoData) => {
+export const updateTodo = (id: number, todo: Partial<TodoData>) => {
 	return patch<Todo>(`/todos/${id}`, todo)
 }
 
