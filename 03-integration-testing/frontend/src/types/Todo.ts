@@ -5,7 +5,7 @@ export type Todo = {
 }
 
 export type TodoResponse = {
-	status: string,
+	status: "success" | "fail" | "error",
 	data: Todo,
 	message?: string,
 }
@@ -13,7 +13,7 @@ export type TodoResponse = {
 export type TodoList = Todo[]
 
 export type TodoListResponse = {
-	status: string,
+	status: "success" | "fail" | "error",
 	data: TodoList,
 	message?: string,
 }
